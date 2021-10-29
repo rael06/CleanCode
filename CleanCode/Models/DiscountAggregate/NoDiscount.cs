@@ -2,9 +2,9 @@ using CleanCode.Models.DiscountAggregate;
 
 namespace CleanCode.Models
 {
-    public class NoDiscount : AbstractDiscount
+    public class NoDiscount : IDiscount
     {
         private const double NO_DISCOUNT = 0;
-        public override double Discount { get; set; } = NO_DISCOUNT;
+        public double GetDiscount() => NO_DISCOUNT;
     }
 }

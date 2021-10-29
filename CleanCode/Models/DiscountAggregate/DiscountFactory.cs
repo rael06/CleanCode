@@ -1,24 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using CleanCode.Models.DiscountAggregate.BasedOnSpent;
 using CleanCode.Models.UserAggregate;
 
 namespace CleanCode.Models.DiscountAggregate
 {
     public static class DiscountFactory
     {
-        private const decimal MIN_SPENT_MONEY_FOR_DISCOUNT_05 = 1000m;
-        private const decimal MIN_SPENT_MONEY_FOR_DISCOUNT_10 = 3000m;
-        private const decimal MIN_SPENT_MONEY_FOR_DISCOUNT_15 = 7500m;
-        private const decimal MIN_SPENT_MONEY_FOR_DISCOUNT_20 = 10000m;
-
-        public static AbstractDiscount CreateDiscount(User user)
+        public static IDiscount CreateDiscount(User user)
         {
-            return user.TotalMoneySpent switch
+            var discounts = new List<IDiscount>
             {
-                > MIN_SPENT_MONEY_FOR_DISCOUNT_20 => new Discount20(),
-                > MIN_SPENT_MONEY_FOR_DISCOUNT_15 => new Discount15(),
-                > MIN_SPENT_MONEY_FOR_DISCOUNT_10 => new Discount10(),
-                > MIN_SPENT_MONEY_FOR_DISCOUNT_05 => new Discount05(),
-                _ => new NoDiscount(),
+                DiscountBasedOnSpentFactory.CreateDiscount(user),
+                DiscountBasedOnSponsorshipNumberFactory.CreateDiscount(user)
             };
+
+            return new Discount(discounts.Sum(discount => discount.GetDiscount()));
         }
     }
 }
