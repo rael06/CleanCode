@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using CleanCode.Models;
+using CleanCode.Models.UserAggregate;
 using CleanCode.Services;
 
 namespace CleanCode
@@ -8,13 +10,20 @@ namespace CleanCode
     {
         static void Main(string[] args)
         {
-            var userToto = new User ("Toto"){TotalMoneySpent = 1500};
-            var userTata = new User ("Tata"){TotalMoneySpent = 500};
+            var users = new List<User>
+            {
+                new("Toto") {TotalMoneySpent = 1000},
+                new("Titi") {TotalMoneySpent = 1001},
+                new("Tata") {TotalMoneySpent = 3001},
+                new("Tutu") {TotalMoneySpent = 7501},
+                new("Tete") {TotalMoneySpent = 10001}
+            };
+
             IDiscountService discountService = new DiscountService();
 
-            Console.WriteLine($"Discount in percent of {userToto.Name}: {userToto.GetDiscountInPercent}");
-            Console.WriteLine($"Discount in percent of {userTata.Name}: {userTata.GetDiscountInPercent}");
-
+            users.ForEach(user =>
+                Console.WriteLine($"Discount in percent of {user.Name}: {user.GetDiscount().Discount}")
+            );
 
 
             Console.WriteLine($"DiscountService {new DiscountServiceUgly().GD(50, 20, 1)}");
