@@ -1,6 +1,6 @@
 namespace CleanCode
 {
-    public class DiscountService
+    public class DiscountServiceUgly
     {
         // GD = GetDiscount
         public decimal GD(decimal t, decimal p, int s)

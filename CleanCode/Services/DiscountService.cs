@@ -1,15 +1,17 @@
-namespace CleanCode
+using CleanCode.Models;
+
+namespace CleanCode.Services
 {
-    public class DiscountServiceClean
+    public class DiscountService : IDiscountService
     {
-        private const decimal PERCENT_100 = 100;
+        public const double NO_DISCOUNT = 0;
+        private const double PERCENT_100 = 100;
 
         public decimal GetDiscountedPrice(decimal price, decimal discountInPercent) =>
             price - GetDiscount(price, discountInPercent);
 
         private static decimal GetDiscount(decimal price, decimal discountInPercent) =>
-            price * discountInPercent / PERCENT_100;
-
+            price * discountInPercent / (decimal) PERCENT_100;
 
     }
 }
