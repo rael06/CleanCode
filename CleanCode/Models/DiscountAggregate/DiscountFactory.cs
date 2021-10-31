@@ -15,7 +15,7 @@ namespace CleanCode.Models.DiscountAggregate
                 DiscountBasedOnSponsorshipNumberFactory.CreateDiscount(user)
             };
 
-            return new Discount(discounts.Sum(discount => discount.GetDiscount()));
+            return new Discount(discounts.Sum(discount => discount.Value));
         }
     }
 }

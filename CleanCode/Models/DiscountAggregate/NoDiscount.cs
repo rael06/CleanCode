@@ -5,6 +5,6 @@ namespace CleanCode.Models
     public class NoDiscount : IDiscount
     {
         private const double NO_DISCOUNT = 0;
-        public double GetDiscount() => NO_DISCOUNT;
+        public double Value => NO_DISCOUNT;
     }
 }

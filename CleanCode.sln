@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanCode", "CleanCode\CleanCode.csproj", "{9FE59464-7875-4047-98F4-2D99A189AB1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decorator", "Decorator\Decorator.csproj", "{BAABD239-5ED1-494A-9671-7B379F48A80B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{9FE59464-7875-4047-98F4-2D99A189AB1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FE59464-7875-4047-98F4-2D99A189AB1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FE59464-7875-4047-98F4-2D99A189AB1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAABD239-5ED1-494A-9671-7B379F48A80B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAABD239-5ED1-494A-9671-7B379F48A80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAABD239-5ED1-494A-9671-7B379F48A80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAABD239-5ED1-494A-9671-7B379F48A80B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

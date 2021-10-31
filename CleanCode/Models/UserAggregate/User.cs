@@ -1,14 +1,12 @@
-using System.Collections.Generic;
 using CleanCode.Models.DiscountAggregate;
-using CleanCode.Models.DiscountAggregate.BasedOnSpent;
 
 namespace CleanCode.Models.UserAggregate
 {
     public class User
     {
-        public string Name { get; set; }
-        public decimal TotalMoneySpent { get; set; }
-        public uint SponsorshipNumber { get; set; }
+        public string Name { get; }
+        public decimal TotalMoneySpent { get; init; }
+        public uint SponsorshipNumber { get; init; }
         public IDiscount Discount => DiscountFactory.CreateDiscount(this);
 
         public User(string name)

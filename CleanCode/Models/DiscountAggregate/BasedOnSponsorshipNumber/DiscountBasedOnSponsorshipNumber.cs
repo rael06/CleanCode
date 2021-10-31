@@ -8,14 +8,14 @@ namespace CleanCode.Models.DiscountAggregate.BasedOnSpent
         private const uint DISCOUNT_LIMIT = 4;
         private const double SPONSORSHIP_NUMBER_GAP = 10;
 
-        private User User { get; set; }
+        private User User { get; }
 
         public DiscountBasedOnSponsorshipNumber(User user)
         {
             User = user;
         }
 
-        public double GetDiscount() =>
+        public double Value =>
             Math.Min(DISCOUNT_LIMIT, Math.Floor(User.SponsorshipNumber / SPONSORSHIP_NUMBER_GAP));
     }
 }

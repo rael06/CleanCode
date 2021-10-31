@@ -1,4 +1,3 @@
-using System;
 using CleanCode.Models.UserAggregate;
 
 namespace CleanCode.Models.DiscountAggregate.BasedOnSpent

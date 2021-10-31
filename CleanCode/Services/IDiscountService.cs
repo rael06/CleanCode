@@ -1,5 +1,3 @@
-using CleanCode.Models;
-
 namespace CleanCode.Services
 {
     public interface IDiscountService

@@ -22,7 +22,7 @@ namespace CleanCode
             IDiscountService discountService = new DiscountService();
 
             users.ForEach(user =>
-                Console.WriteLine($"Discount in percent of {user.Name}: {user.Discount.GetDiscount()}")
+                Console.WriteLine($"Discount in percent of {user.Name}: {user.Discount.Value}")
             );
 
 
