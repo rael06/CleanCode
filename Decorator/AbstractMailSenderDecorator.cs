@@ -4,7 +4,7 @@ namespace Decorator
 {
     public abstract class AbstractMailSenderDecorator : IMailSender
     {
-        protected IMailSender MailSender { get; set; }
+        protected IMailSender MailSender { get; }
 
         protected AbstractMailSenderDecorator(IMailSender mailSender)
         {

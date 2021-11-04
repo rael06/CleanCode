@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using CleanCode.Models;
 using CleanCode.Models.UserAggregate;
 using CleanCode.Services;
 
 namespace CleanCode
 {
-    class Program
+    internal static class Program
     {
+        private static readonly IDiscountService discountService = new DiscountService();
+
         static void Main(string[] args)
         {
             var users = new List<User>
@@ -19,15 +20,17 @@ namespace CleanCode
                 new("Tete") {TotalMoneySpent = 10001, SponsorshipNumber = 40}
             };
 
-            IDiscountService discountService = new DiscountService();
 
-            users.ForEach(user =>
-                Console.WriteLine($"Discount in percent of {user.Name}: {user.Discount.Value}")
-            );
+            users.ForEach(DisplayTotalPriceInfo);
+        }
 
-
-            Console.WriteLine($"DiscountService {new DiscountServiceUgly().GD(50, 20, 1)}");
-            Console.WriteLine($"DiscountService {discountService.GetDiscountedPrice(50, 20)}");
+        private static void DisplayTotalPriceInfo(User user)
+        {
+            Console.WriteLine($"Price before discount of {user.Name}: {user.TotalMoneySpent}");
+            Console.WriteLine($"Discount in percent of {user.Name}: {user.Discount.Value}");
+            Console.WriteLine(
+                $"Price after discount for {user.Name}: {discountService.GetDiscountedPrice(user.TotalMoneySpent, user.Discount.Value)}");
+            Console.WriteLine();
         }
     }
 }
